@@ -148,26 +148,40 @@
                 Persuasive or Deceptive Visualization?
             </h1>
 
-            <p><strong>Your Name</strong> — <em>Your UCSD Email Address</em></p>
+            <p>
+                <strong>Evan Ngo, Richard Wang, Benson Zhu, Ryan Luutuyen</strong> —
+                <em>e3ngo@ucsd.edu, riw009@ucsd.edu, bezhu@ucsd.edu, rluutuyen@ucsd.edu</em>
+            </p>
         </header>
 
         <main>
-            <h2>Proposition: [STATE PROPOSITION]</h2>
+            <h2>Proposition: In CCRB complaint data, force-related allegations are less likely to be substantiated than abuse of authority allegations.</h2>
 
             <section>
                 <h3>FOR the Proposition</h3>
 
                 <figure>
-                    <img src="IMAGE_FILENAME" alt="" />
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
+                    <img src="support.png" alt="Line chart showing 3-year rolling average substantiation rates for Force and Abuse of Authority allegations from 1995 to 2022, with Force consistently lower than Abuse of Authority." />
+                    <figcaption>
+                        Force allegations have had consistently lower substantiation rates than abuse of authority allegations across nearly three decades of CCRB data (3-year rolling average; years with fewer than 40 allegations excluded).
+                    </figcaption>
                 </figure>
 
                 <p>Design Decisions and Rationale:</p>
 
                 <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
+                    <li>
+                        <strong>3-year rolling average (Score: +1).</strong> Smoothing year-to-year noise with a rolling window makes the persistent gap between the two categories more legible without distorting the direction of the trend. This is an earnest technique commonly used in time-series reporting.
+                    </li>
+                    <li>
+                        <strong>Minimum sample threshold — exclude years with fewer than 40 allegations (Score: +1).</strong> Dropping low-count years prevents extreme, statistically unreliable values from misleading readers about the overall pattern. This is a transparent methodological choice disclosed in the subtitle.
+                    </li>
+                    <li>
+                        <strong>Shaded fill between the two curves (Score: +1).</strong> Filling the area between the Force and Abuse of Authority lines visually emphasizes the persistent gap and guides the reader's eye to the key comparison. It does not misrepresent magnitude — the shaded region faithfully reflects the actual difference at every point.
+                    </li>
+                    <li>
+                        <strong>Percentage (rate) on the y-axis rather than raw counts (Score: +2).</strong> Showing substantiation rates instead of absolute counts is the correct normalization for a proposition about likelihood of substantiation. Raw counts would conflate volume differences with outcome differences and would be misleading in the opposite direction.
+                    </li>
                 </ul>
             </section>
 
@@ -175,23 +189,40 @@
                 <h3>AGAINST the Proposition</h3>
 
                 <figure>
-                    <img src="IMAGE_FILENAME" alt="" />
-                    <figcaption>BRIEF CAPTION HERE.</figcaption>
+                    <img src="oppose.png" alt="Bar chart showing total, Force, and Abuse of Authority substantiated allegation counts: 8301 total, 976 Force, 6172 Abuse of Authority." />
+                    <figcaption>
+                        Even though force allegations are substantiated at a lower rate, nearly 1,000 force allegations were still substantiated — a substantial absolute number that the rate-based framing obscures.
+                    </figcaption>
                 </figure>
 
                 <p>Design Decisions and Rationale:</p>
 
                 <ul>
-                    <li>RATIONALE_1</li>
-                    <li>RATIONALE_2</li>
-                    <li>RATIONALE_3</li>
+                    <li>
+                        <strong>Absolute counts instead of rates (Score: -1).</strong> Switching from substantiation rates to raw counts of substantiated cases shifts the comparison from "how often" to "how many." This reframing is intentionally misleading relative to the proposition, which is specifically about likelihood (rate), not volume. A viewer focused on counts may incorrectly conclude that force allegations are a major accountability concern on par with abuse of authority.
+                    </li>
+                    <li>
+                        <strong>Including a "Total" bar alongside the category bars (Score: -1).</strong> Placing Force (976) next to the overall total (8,301) makes 976 look like a meaningful portion of complaints without clarifying that most of that total comes from Abuse of Authority. This implicitly inflates the perceived significance of the Force count.
+                    </li>
+                    <li>
+                        <strong>Direct value labels on all bars (Score: 0).</strong> Labeling exact counts is a neutral design choice that aids readability. However, in this context the precise numbers (976 Force, 6,172 Abuse of Authority) reinforce the count-based framing rather than correcting it.
+                    </li>
+                    <li>
+                        <strong>Distinct accent color for the Force bar (Score: 0).</strong> Using a visually distinct red-orange for the Force bar draws the viewer's attention to it specifically. This is a mild emphasis choice that serves the argument without technically misrepresenting any data.
+                    </li>
                 </ul>
             </section>
 
             <section>
                 <h2>Final Reflection</h2>
 
-                <p>[WRITE FINAL REFLECTION PARAGRAPHS HERE.]</p>
+                <p>
+                    Working through both sides of this proposition highlighted how much framing choices shape perceived meaning even when no individual data point is fabricated. The supporting visualization uses substantiation rates — the appropriate metric for a claim about likelihood — and applies standard smoothing techniques to reveal a stable long-term pattern. Every design decision was disclosed in the chart itself (rolling window size, sample cutoff), making the analysis easy to scrutinize and reproduce. In contrast, the opposing visualization is technically accurate in every number it displays, yet it misleads by pivoting to a different metric (raw counts) and by juxtaposing the Force bar against a large "Total" figure. Neither visualization invents data, but one honestly answers the proposition and the other quietly changes the question.
+                </p>
+
+                <p>
+                    This exercise clarified what distinguishes "earnest" from "deceptive" persuasion. An earnest visualization chooses the metric that most directly addresses the claim, discloses methodological decisions that could affect interpretation, and avoids visual encoding choices that exaggerate or minimize differences. A deceptive visualization exploits the gap between what a viewer will quickly infer and what the data actually supports — often by swapping metrics, omitting normalization, or using scale manipulations. The opposing chart here sits closer to deceptive because it exploits the natural human tendency to treat large absolute numbers as inherently significant, even when the rate (the relevant measure) tells the opposite story. The hardest lesson is that the line between the two is not always obvious: some choices — like the shaded fill or the color accent — are neutral or positive in one context and manipulative in another. Thoughtful visualization requires asking not just "is this accurate?" but "does this help or hinder an honest understanding of the data?"
+                </p>
             </section>
         </main>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"c822b88e119346678db149ed7b7721c9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
