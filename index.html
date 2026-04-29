@@ -171,16 +171,19 @@
 
                 <ul>
                     <li>
-                        <strong>3-year rolling average (Score: +1).</strong> Smoothing year-to-year noise with a rolling window makes the persistent gap between the two categories more legible without distorting the direction of the trend. This is an earnest technique commonly used in time-series reporting.
+                        <strong>Use of a 3-year rolling average and filtering low-count years (Score: +1.5).</strong> We applied a 3-year rolling average to smooth out year-to-year fluctuations and excluded years with fewer than 40 allegations in either category. This transformation reduces noise caused by small sample sizes and makes the overall trend easier to interpret. While this is a standard and reasonable data transformation, it also subtly strengthens the argument by emphasizing consistent patterns over variability. We considered using raw yearly values, but they appeared noisy and made the comparison less clear, so we chose smoothing to highlight the broader trend.
                     </li>
                     <li>
-                        <strong>Minimum sample threshold - exclude years with fewer than 40 allegations (Score: +1).</strong> Dropping low-count years prevents extreme, statistically unreliable values from misleading readers about the overall pattern. This is a transparent methodological choice disclosed in the subtitle.
+                        <strong>Framing the visualization around substantiation rates (percentages) (Score: +1).</strong> The visualization uses substantiation rates rather than raw counts to compare Force and Abuse of Authority allegations. This is appropriate because the proposition focuses on the likelihood of substantiation. However, this choice also frames the narrative toward the argument by ignoring total volume, which could lead to a different interpretation. We considered including counts as a secondary axis, but omitted them to maintain a focused comparison that supports the proposition.
                     </li>
                     <li>
-                        <strong>Shaded fill between the two curves (Score: +1).</strong> Filling the area between the Force and Abuse of Authority lines visually emphasizes the persistent gap and guides the reader's eye to the key comparison. It does not misrepresent magnitude - the shaded region faithfully reflects the actual difference at every point.
+                        <strong>Strong/assertive title framing the conclusion (Score: -0.5).</strong> The title explicitly states that Force allegations are "less likely to be substantiated," which interprets the data for the viewer rather than presenting it neutrally. This makes the visualization more persuasive by guiding the reader toward a specific conclusion before fully examining the chart. We considered a more neutral title (e.g., "Substantiation Rates Over Time"), but chose a stronger statement to align with the goal of persuasion.
                     </li>
                     <li>
-                        <strong>Percentage (rate) on the y-axis rather than raw counts (Score: +2).</strong> Showing substantiation rates instead of absolute counts is the correct normalization for a proposition about likelihood of substantiation. Raw counts would conflate volume differences with outcome differences and would be misleading in the opposite direction.
+                        <strong>Use of annotation to guide interpretation of the trend (Score: -0.5).</strong> The annotation highlights that Abuse of Authority complaints "remain higher across most years," directing attention to the consistent gap between the two lines. This helps the viewer quickly understand the intended takeaway without needing to interpret the entire time series. While helpful, this annotation selectively emphasizes one interpretation and downplays variability or exceptions. We considered removing the annotation, but kept it to reinforce the narrative clearly.
+                    </li>
+                    <li>
+                        <strong>Direct labeling of lines instead of relying solely on the legend (Score: +2).</strong> Placing labels ("Force" and "Abuse of Authority") directly at the end of each line reduces cognitive load and allows the viewer to quickly associate each line with its category. This improves readability and eliminates the need to repeatedly reference the legend. This design choice does not distort the data and is a widely accepted best practice for clarity. We considered using only a legend, but direct labeling made the chart easier to interpret at a glance.
                     </li>
                 </ul>
             </section>
