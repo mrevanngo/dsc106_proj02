@@ -1,0 +1,12 @@
+body {
+    font-family: sans-serif;
+}
+
+svg {
+    background: black;
+    border: 1px solid gray;
+}
+
+.cell {
+    stroke: none;
+}
