@@ -16,7 +16,9 @@ const color = d3.scaleSequential()
     .domain([16,30])
     .interpolator(d3.interpolateInferno);
 
+let curFrame = 0;
 
+//draw images function
 function drawFrame(frameNum) {
     d3.json(`data/frame_${frameNum}.json`)
         .then(data => {
@@ -39,22 +41,33 @@ function drawFrame(frameNum) {
             cells.exit().remove();
         });
 }
-
+//initial image rendering
 drawFrame(0);
 d3.select('#slider')
     .on('input', function() {
         const frame = this.value;
         drawFrame(frame);
+        curFrame = frame;
         d3.select('#timeLabel')
             .text(`Frame ${frame}`);
     });
 
-let currentFrame = 0;
-setInterval(() => {
-    drawFrame(currentFrame);
-    currentFrame = (currentFrame + 1) % 23;
-    d3.select('#timeLabel')
-        .text(`Frame ${currentFrame}`);
-    d3.select('#slider')
-        .attr('value', `${currentFrame}`)
-}, 500);
+//auto cycle
+let running = false;
+let myInt = null;
+d3.select('#cycle_button')
+    .on('click', function() {
+        if(!running) {
+            myInt = setInterval(() => {
+                curFrame = (curFrame + 1) % 71;
+                drawFrame(curFrame);
+                d3.select('#timeLabel')
+                    .text(`Frame ${curFrame}`);
+                d3.select('#slider')
+                    .attr('value', `${curFrame}`)
+                }, 1000);
+        } else {
+            clearInterval(myInt);
+        }
+        running = !running;
+    });
