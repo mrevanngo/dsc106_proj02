@@ -45,11 +45,10 @@ function drawFrame(frameNum) {
 drawFrame(0);
 d3.select('#slider')
     .on('input', function() {
-        const frame = this.value;
-        drawFrame(frame);
-        curFrame = frame;
+        curFrame = +this.value;
+        drawFrame(curFrame);
         d3.select('#timeLabel')
-            .text(`Frame ${frame}`);
+            .text(`Frame ${curFrame}`);
     });
 
 //auto cycle
@@ -64,7 +63,7 @@ d3.select('#cycle_button')
                 d3.select('#timeLabel')
                     .text(`Frame ${curFrame}`);
                 d3.select('#slider')
-                    .attr('value', `${curFrame}`)
+                    .property('value', `${curFrame}`)
                 }, 1000);
         } else {
             clearInterval(myInt);
