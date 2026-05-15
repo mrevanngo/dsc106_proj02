@@ -70,3 +70,47 @@ d3.select('#cycle_button')
         }
         running = !running;
     });
+
+//legend
+
+const legendWidth = 300;
+const legendHeight = 20;
+
+const legendSvg = d3.select('#legend')
+    .append('svg')
+    .attr('width', legendWidth + 60)
+    .attr('height', 60)
+
+const defs = legendSvg.append('defs');
+const gradient = defs.append('linearGradient')
+    .attr('id', 'temp-gradient');
+
+gradient.selectAll('stop')
+    .data(d3.range(0, 1.01, 0.1))
+    .enter()
+    .append('stop')
+    .attr('offset', d => `${d*100}%`)
+    .attr('stop-color', d =>
+        color(16 + d*(30-16))
+    );
+
+legendSvg.append('rect')
+    .attr('x', 30)
+    .attr('y', 10)
+    .attr('width', legendWidth)
+    .attr('height', legendHeight)
+    .style('fill', 'url(#temp-gradient)')
+
+legendSvg.append('text')
+    .attr('x', 30)
+    .attr('y', 45)
+    .attr('fill', 'white')
+    .style('font-size', '14px')
+    .text('16°C');
+
+legendSvg.append('text')
+    .attr('x', legendWidth + 10)
+    .attr('y', 45)
+    .attr('fill', 'white')
+    .style('font-size', '14px')
+    .text('30°C');
